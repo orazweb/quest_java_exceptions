@@ -9,6 +9,8 @@ public class OddSum {
     public static int run(String[] args, boolean test) {
 
         ArrayList<Integer> listInt = new ArrayList<>();
+
+
         int res;
         if (!test) {
             System.out.println("Elements' list :");
@@ -16,11 +18,18 @@ public class OddSum {
                 System.out.print(" " + v);
             System.out.println();
         }
-        for (int i = 0; i < args.length; i++) {
-            listInt.add(Integer.parseInt(args[i]));
+        try {
+            for (int i = 0; i < args.length; i++) {
+                listInt.add(Integer.parseInt(args[i]));
+            }
+            res = sum(listInt);
+        }catch (NumberFormatException e){
+            System.err.println("ya une lettre ça peut pas marcher frère ! ");
+            res = -1;
+
         }
 
-        res = sum(listInt);
+
         if (test) {
             return res;
         }
